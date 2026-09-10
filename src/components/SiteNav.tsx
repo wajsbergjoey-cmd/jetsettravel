@@ -76,9 +76,9 @@ export function SiteNav() {
         >
           {flying && (
             <span aria-hidden="true" className="pointer-events-none absolute inset-y-0 left-0 z-[60] flex items-center">
-              <span className="plane-fly relative block text-gold">
-                <span className="plane-trail absolute top-1/2 left-full ml-1 block h-[2px] w-24 origin-left rounded-full bg-gradient-to-r from-gold to-transparent" />
-                <svg viewBox="0 0 24 24" className="h-9 w-9 -scale-x-100 fill-current drop-shadow-[0_2px_14px_rgba(255,255,255,0.55)]">
+              <span className="plane-fly relative block text-cream">
+                <span className="plane-trail absolute top-1/2 left-full ml-1 block h-[2px] w-24 origin-left rounded-full bg-gradient-to-r from-cream to-transparent" />
+                <svg viewBox="0 0 24 24" className="h-10 w-10 -scale-x-100 fill-current drop-shadow-[0_3px_10px_rgba(46,32,19,0.65)]">
                   <path d="M2 16l20-7-7 20-3-8-8-3z" />
                 </svg>
               </span>
