@@ -35,7 +35,23 @@ const steps = [
   },
 ];
 
+function openBookingPopup() {
+  const w = Math.min(560, window.screen.availWidth);
+  const h = Math.min(780, window.screen.availHeight);
+  const left = Math.max(0, Math.round(window.screenX + (window.outerWidth - w) / 2));
+  const top = Math.max(0, Math.round(window.screenY + (window.outerHeight - h) / 2));
+  const win = window.open(
+    CONSULT_URL,
+    "jetset-consult",
+    `popup=yes,width=${w},height=${h},left=${left},top=${top},resizable=yes,scrollbars=yes`,
+  );
+  win?.focus();
+  return win;
+}
+
 function Panel({ onClose }: { onClose: () => void }) {
+  const [launched, setLaunched] = useState(false);
+
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
