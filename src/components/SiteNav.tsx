@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import logo from "@/assets/logo.png.asset.json";
+import { BrandMark } from "@/components/BrandMark";
 import { useConsult } from "@/components/ConsultPanel";
 
 const links = [
@@ -63,13 +63,7 @@ export function SiteNav() {
           className="relative flex items-center"
           aria-label="Jet Set Travel Co. — home"
         >
-          <img
-            src={logo.url}
-            alt="Jet Set Travel Co."
-            className={`block w-auto transition-all duration-300 ${
-              scrolled ? "h-10" : "h-12"
-            }`}
-          />
+          <BrandMark size={scrolled ? "sm" : "md"} responsive />
         </a>
 
         <div className="hidden gap-[30px] text-[0.92rem] text-foreground-soft md:flex">
