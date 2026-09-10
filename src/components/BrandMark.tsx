@@ -17,7 +17,7 @@ const sizes = {
 export function LogoMark({ className = "" }: { className?: string }) {
   return (
     <span
-      className={`relative inline-flex shrink-0 items-center justify-center rounded-full bg-espresso shadow-[inset_0_0_0_1px_rgba(201,162,77,0.35),0_4px_14px_-6px_rgba(46,32,19,0.55)] transition-all duration-300 ${className}`}
+      className={`relative inline-flex shrink-0 items-center justify-center rounded-full bg-primary shadow-[inset_0_0_0_1px_rgba(201,162,77,0.35),0_4px_14px_-6px_rgba(46,32,19,0.55)] transition-all duration-300 ${className}`}
       aria-hidden="true"
     >
       <svg
