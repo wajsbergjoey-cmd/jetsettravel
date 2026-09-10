@@ -168,15 +168,15 @@
 }
 
 @utility plane-fly {
-  animation: plane-fly 1900ms cubic-bezier(0.36, 0.5, 0.2, 1) forwards;
+  animation: plane-fly 2600ms cubic-bezier(0.36, 0.5, 0.2, 1) forwards;
 }
 
 @utility plane-trail {
-  animation: plane-trail 1900ms cubic-bezier(0.36, 0.5, 0.2, 1) forwards;
+  animation: plane-trail 2600ms cubic-bezier(0.36, 0.5, 0.2, 1) forwards;
 }
 
 @utility logo-arrive {
-  animation: logo-arrive 1900ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation: logo-arrive 2600ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 @utility wrap {
