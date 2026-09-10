@@ -1,5 +1,5 @@
 import { Reveal } from "@/components/Reveal";
-import { CONSULT_URL } from "@/lib/site";
+import { useConsult } from "@/components/ConsultPanel";
 
 const steps = [
   "Book a free consultation below",
@@ -8,6 +8,8 @@ const steps = [
 ];
 
 export function Consult() {
+  const { open } = useConsult();
+
   return (
     <section id="consult" className="py-[110px]">
       <div className="wrap grid grid-cols-1 items-center gap-[72px] min-[820px]:grid-cols-[1.1fr_0.9fr]">
@@ -35,14 +37,9 @@ export function Consult() {
               Tell me where you're headed and I'll put together options with the perks and upgrades
               most people miss.
             </p>
-            <a
-              className="btn-primary w-full text-center"
-              href={CONSULT_URL}
-              target="_blank"
-              rel="noopener"
-            >
+            <button type="button" className="btn-primary w-full text-center" onClick={open}>
               Book your consult
-            </a>
+            </button>
             <div className="mt-[18px] text-[0.82rem] text-[rgba(245,237,225,0.55)]">
               Booked through Fora's secure scheduling — no spam, ever.
             </div>

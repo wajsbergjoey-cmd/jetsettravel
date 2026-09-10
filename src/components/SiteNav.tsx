@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import logo from "@/assets/logo.png.asset.json";
-import { CONSULT_URL } from "@/lib/site";
+import { useConsult } from "@/components/ConsultPanel";
 
 const links = [
   { href: "#services", label: "Services" },
@@ -12,6 +12,7 @@ const links = [
 ];
 
 export function SiteNav() {
+  const { open: openConsult } = useConsult();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<string>("");
@@ -79,14 +80,13 @@ export function SiteNav() {
         </div>
 
         <div className="flex items-center gap-3">
-          <a
-            href={CONSULT_URL}
-            target="_blank"
-            rel="noopener"
+          <button
+            type="button"
+            onClick={openConsult}
             className="hidden rounded-[3px] bg-primary px-5 py-[10px] text-[0.88rem] tracking-[0.01em] text-primary-foreground transition-colors hover:bg-gold-deep sm:inline-block"
           >
             Book a consult
-          </a>
+          </button>
           <button
             type="button"
             onClick={() => setOpen((v) => !v)}
@@ -118,15 +118,16 @@ export function SiteNav() {
                 {l.label}
               </a>
             ))}
-            <a
-              href={CONSULT_URL}
-              target="_blank"
-              rel="noopener"
-              onClick={() => setOpen(false)}
+            <button
+              type="button"
+              onClick={() => {
+                setOpen(false);
+                openConsult();
+              }}
               className="mt-2 rounded-[3px] bg-primary px-5 py-3 text-center text-[0.95rem] text-primary-foreground"
             >
               Book a consult
-            </a>
+            </button>
           </div>
         </div>
       )}

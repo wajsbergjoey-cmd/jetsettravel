@@ -7,6 +7,7 @@ import { Perks } from "@/components/Perks";
 import { RecentTrips } from "@/components/RecentTrips";
 import { Testimonials } from "@/components/Testimonials";
 import { Consult } from "@/components/Consult";
+import { ConsultProvider } from "@/components/ConsultPanel";
 import { SiteFooter } from "@/components/SiteFooter";
 
 const title = "Jet Set Travel Co. — Travel Advisor";
@@ -44,7 +45,7 @@ export const Route = createFileRoute("/")({
 
 function Index() {
   return (
-    <>
+    <ConsultProvider>
       <SiteNav />
       <main>
         <Hero />
@@ -55,6 +56,6 @@ function Index() {
         <Consult />
       </main>
       <SiteFooter />
-    </>
+    </ConsultProvider>
   );
 }
