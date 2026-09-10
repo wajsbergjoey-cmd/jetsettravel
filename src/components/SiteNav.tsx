@@ -21,7 +21,7 @@ export function SiteNav() {
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
     const start = window.setTimeout(() => setFlying(true), 150);
-    const end = window.setTimeout(() => setFlying(false), 3200);
+    const end = window.setTimeout(() => setFlying(false), 4200);
     return () => {
       window.clearTimeout(start);
       window.clearTimeout(end);
