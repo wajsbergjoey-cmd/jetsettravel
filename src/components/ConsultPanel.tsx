@@ -36,21 +36,27 @@ const steps = [
 ];
 
 function openBookingPopup() {
-  const w = Math.min(560, window.screen.availWidth);
-  const h = Math.min(780, window.screen.availHeight);
+  const w = Math.min(600, Math.max(360, window.screen.availWidth - 32));
+  const h = Math.min(820, Math.max(600, window.screen.availHeight - 64));
   const left = Math.max(0, Math.round(window.screenX + (window.outerWidth - w) / 2));
   const top = Math.max(0, Math.round(window.screenY + (window.outerHeight - h) / 2));
   const win = window.open(
-    CONSULT_URL,
+    "about:blank",
     "jetset-consult",
-    `popup=yes,width=${w},height=${h},left=${left},top=${top},resizable=yes,scrollbars=yes`,
+    `popup=yes,width=${w},height=${h},left=${left},top=${top},resizable=yes,scrollbars=yes,toolbar=no,menubar=no,location=no,status=no`,
   );
-  win?.focus();
+  if (!win) return null;
+
+  // Opening the sized window first makes browsers treat this as a real popup,
+  // rather than converting the cross-origin destination into a new tab.
+  win.location.replace(CONSULT_URL);
+  win.focus();
   return win;
 }
 
 function Panel({ onClose }: { onClose: () => void }) {
   const [launched, setLaunched] = useState(false);
+  const [popupBlocked, setPopupBlocked] = useState(false);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -115,15 +121,17 @@ function Panel({ onClose }: { onClose: () => void }) {
               type="button"
               onClick={() => {
                 const win = openBookingPopup();
+                setPopupBlocked(!win);
                 if (win) setLaunched(true);
-                else window.open(CONSULT_URL, "_blank", "noopener");
               }}
               className="block w-full rounded-[3px] bg-primary px-6 py-4 text-center text-[0.98rem] text-primary-foreground transition-colors hover:bg-gold-deep"
             >
               {launched ? "Reopen the booking window" : "Continue to the booking form"}
             </button>
             <p className="mt-3 text-center text-[0.8rem] text-foreground-soft">
-              {launched
+              {popupBlocked
+                ? "Your browser blocked the booking window. Allow pop-ups for this site, then try again."
+                : launched
                 ? "The secure form opened in a small window over this page — I'm right here when you're done."
                 : "Opens Fora's secure form in a small window over this page — you never leave my site."}
             </p>
