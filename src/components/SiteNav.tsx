@@ -16,17 +16,6 @@ export function SiteNav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [active, setActive] = useState<string>("");
-  const [flying, setFlying] = useState(false);
-
-  useEffect(() => {
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const start = window.setTimeout(() => setFlying(true), 150);
-    const end = window.setTimeout(() => setFlying(false), 4200);
-    return () => {
-      window.clearTimeout(start);
-      window.clearTimeout(end);
-    };
-  }, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
