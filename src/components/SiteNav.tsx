@@ -20,11 +20,12 @@ export function SiteNav() {
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    if (sessionStorage.getItem("jsl-plane") === "done") return;
-    sessionStorage.setItem("jsl-plane", "done");
-    setFlying(true);
-    const t = window.setTimeout(() => setFlying(false), 2100);
-    return () => window.clearTimeout(t);
+    const start = window.setTimeout(() => setFlying(true), 150);
+    const end = window.setTimeout(() => setFlying(false), 4200);
+    return () => {
+      window.clearTimeout(start);
+      window.clearTimeout(end);
+    };
   }, []);
 
   useEffect(() => {
@@ -74,10 +75,10 @@ export function SiteNav() {
           aria-label="Jet Set Travel Co. — home"
         >
           {flying && (
-            <span aria-hidden="true" className="pointer-events-none absolute inset-y-0 left-0 flex items-center">
-              <span className="plane-fly relative block text-gold-deep">
-                <span className="plane-trail absolute top-1/2 right-full mr-1 block h-[1.5px] w-16 origin-right rounded-full bg-gradient-to-l from-gold-deep to-transparent" />
-                <svg viewBox="0 0 24 24" className="h-6 w-6 fill-current drop-shadow-[0_2px_8px_rgba(140,99,41,0.45)]">
+            <span aria-hidden="true" className="pointer-events-none absolute inset-y-0 left-0 z-[60] flex items-center">
+              <span className="plane-fly relative block text-cream">
+                <span className="plane-trail absolute top-1/2 left-full ml-1 block h-[2px] w-24 origin-left rounded-full bg-gradient-to-r from-cream to-transparent" />
+                <svg viewBox="0 0 24 24" className="h-10 w-10 -scale-x-100 fill-current drop-shadow-[0_3px_10px_rgba(46,32,19,0.65)]">
                   <path d="M2 16l20-7-7 20-3-8-8-3z" />
                 </svg>
               </span>
