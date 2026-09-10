@@ -1,5 +1,7 @@
 import type { ReactNode } from "react";
 
+import { Reveal } from "@/components/Reveal";
+
 const services: { title: string; body: string; icon: ReactNode }[] = [
   {
     title: "Hotels & resorts",
@@ -34,13 +36,14 @@ export function Services() {
     <section id="services" className="bg-primary text-primary-foreground">
       <div className="wrap grid grid-cols-1 sm:grid-cols-3">
         {services.map((s, i) => (
-          <div
+          <Reveal
             key={s.title}
-            className={`px-[10px] py-10 text-center sm:border-l sm:border-t-0 sm:px-7 sm:py-14 ${
+            delay={i * 100}
+            className={`group px-[10px] py-10 text-center sm:border-t-0 sm:border-l sm:px-7 sm:py-14 ${
               i === 0 ? "" : "border-t border-[rgba(245,237,225,0.14)]"
             } sm:border-l-[rgba(245,237,225,0.14)] ${i === 0 ? "sm:border-l-0" : ""}`}
           >
-            <div className="badge-gradient mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full">
+            <div className="badge-gradient mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full shadow-[0_14px_30px_-18px_rgba(217,139,79,0.9)] transition-transform duration-300 group-hover:scale-105">
               <svg
                 viewBox="0 0 24 24"
                 strokeWidth={1.6}
@@ -52,7 +55,7 @@ export function Services() {
             </div>
             <h3 className="mb-[10px] text-[1.15rem] text-cream">{s.title}</h3>
             <p className="text-[0.94rem] text-[rgba(245,237,225,0.72)]">{s.body}</p>
-          </div>
+          </Reveal>
         ))}
       </div>
     </section>
