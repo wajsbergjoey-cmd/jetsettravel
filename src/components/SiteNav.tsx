@@ -58,11 +58,27 @@ export function SiteNav() {
       }`}
     >
       <div className="wrap flex h-[74px] items-center justify-between">
-        <a href="#top" className="flex items-center" aria-label="Jet Set Travel Co. — home">
+        <a
+          href="#top"
+          className="relative flex items-center"
+          aria-label="Jet Set Travel Co. — home"
+        >
+          {flying && (
+            <span aria-hidden="true" className="pointer-events-none absolute inset-y-0 left-0 flex items-center">
+              <span className="plane-fly relative block text-gold-deep">
+                <span className="plane-trail absolute top-1/2 right-full mr-1 block h-[1.5px] w-16 origin-right rounded-full bg-gradient-to-l from-gold-deep to-transparent" />
+                <svg viewBox="0 0 24 24" className="h-6 w-6 fill-current drop-shadow-[0_2px_8px_rgba(140,99,41,0.45)]">
+                  <path d="M2 16l20-7-7 20-3-8-8-3z" />
+                </svg>
+              </span>
+            </span>
+          )}
           <img
             src={logo.url}
             alt="Jet Set Travel Co."
-            className={`block w-auto transition-all duration-300 ${scrolled ? "h-10" : "h-12"}`}
+            className={`block w-auto transition-all duration-300 ${scrolled ? "h-10" : "h-12"} ${
+              flying ? "logo-arrive" : ""
+            }`}
           />
         </a>
 
