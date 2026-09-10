@@ -78,7 +78,7 @@ export function SiteNav() {
             <span aria-hidden="true" className="pointer-events-none absolute inset-y-0 left-0 flex items-center">
               <span className="plane-fly relative block text-gold-deep">
                 <span className="plane-trail absolute top-1/2 right-full mr-1 block h-[1.5px] w-16 origin-right rounded-full bg-gradient-to-l from-gold-deep to-transparent" />
-                <svg viewBox="0 0 24 24" className="h-6 w-6 fill-current drop-shadow-[0_2px_8px_rgba(140,99,41,0.45)]">
+                <svg viewBox="0 0 24 24" className="h-9 w-9 fill-current drop-shadow-[0_2px_10px_rgba(140,99,41,0.5)]">
                   <path d="M2 16l20-7-7 20-3-8-8-3z" />
                 </svg>
               </span>
