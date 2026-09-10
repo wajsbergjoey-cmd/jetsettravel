@@ -1,5 +1,5 @@
 import heroImg from "@/assets/hero.jpg.asset.json";
-import { CONSULT_URL } from "@/lib/site";
+import { useConsult } from "@/components/ConsultPanel";
 
 const stats = [
   { value: "Fora", label: "Advisor network" },
@@ -8,6 +8,8 @@ const stats = [
 ];
 
 export function Hero() {
+  const { open } = useConsult();
+
   return (
     <header
       id="top"
@@ -38,9 +40,9 @@ export function Hero() {
             the upgrades, credits, and insider knowledge that only come from working an advisor.
           </p>
           <div className="mt-9 flex flex-wrap gap-4">
-            <a className="btn-primary" href={CONSULT_URL} target="_blank" rel="noopener">
+            <button type="button" className="btn-primary" onClick={open}>
               Get your free consultation
-            </a>
+            </button>
             <a className="btn-ghost" href="#services">
               See what I book
             </a>
