@@ -1,29 +1,39 @@
+import heroImg from "@/assets/hero.jpg.asset.json";
 import { CONSULT_URL } from "@/lib/site";
+
+const stats = [
+  { value: "Fora", label: "Advisor network" },
+  { value: "0", label: "Extra cost to you" },
+  { value: "24/7", label: "A real person to call" },
+];
 
 export function Hero() {
   return (
     <header
       id="top"
-      className="hero-gradient relative flex min-h-[560px] items-end overflow-hidden md:min-h-[640px]"
+      className="relative flex min-h-[620px] items-end overflow-hidden md:min-h-[720px]"
     >
-      <svg
-        viewBox="0 0 500 500"
-        xmlns="http://www.w3.org/2000/svg"
-        aria-hidden="true"
-        className="pointer-events-none absolute -top-[4%] -right-[20%] z-[1] w-[85%] max-w-[640px] opacity-50 md:-top-[8%] md:-right-[6%] md:w-[62%] md:opacity-90"
-      >
-        <path d="M40,420 L460,60 L500,90 L120,470 Z" fill="rgba(20,12,10,0.28)" />
-        <path d="M60,440 L470,90 L500,115 L140,480 Z" fill="rgba(20,12,10,0.18)" />
-      </svg>
-      <div className="relative z-[2] w-full pt-[90px] pb-[78px] md:pt-[120px]">
+      <img
+        src={heroImg.url}
+        alt="Cliffside resort infinity pool overlooking the sea at golden hour"
+        width={1920}
+        height={1280}
+        fetchPriority="high"
+        className="absolute inset-0 h-full w-full object-cover"
+      />
+      <div className="hero-veil absolute inset-0" aria-hidden="true" />
+
+      <div className="relative z-[2] w-full pt-[120px] pb-[70px] md:pt-[160px]">
         <div className="wrap">
-          <div className="mb-[18px] text-[0.95rem] text-[rgba(255,244,230,0.86)]">
+          <div className="hero-eyebrow mb-6 inline-flex items-center gap-[10px] rounded-full px-4 py-[7px] text-[0.8rem] tracking-[0.14em] text-cream uppercase">
+            <span className="h-[6px] w-[6px] rounded-full bg-amber" />
             Travel advisor — hotels, cruises &amp; flights
           </div>
-          <h1 className="max-w-[11ch] text-[clamp(2.6rem,6vw,4.4rem)] leading-[1.04] font-medium text-cream">
-            Trips planned with taste, <em className="text-[#FDE3B8] italic">booked with an edge.</em>
+          <h1 className="max-w-[13ch] text-[clamp(2.7rem,6.4vw,4.6rem)] leading-[1.03] font-medium text-cream drop-shadow-[0_2px_24px_rgba(20,12,8,0.35)]">
+            Trips planned with taste,{" "}
+            <em className="text-[#FDE3B8] italic">booked with an edge.</em>
           </h1>
-          <p className="mt-[26px] max-w-[46ch] text-[1.08rem] text-[rgba(255,246,235,0.88)]">
+          <p className="mt-[26px] max-w-[46ch] text-[1.08rem] text-[rgba(255,246,235,0.9)]">
             I plan and book travel the way frequent flyers wish they could do it themselves — with
             the upgrades, credits, and insider knowledge that only come from working an advisor.
           </p>
@@ -35,6 +45,17 @@ export function Hero() {
               See what I book
             </a>
           </div>
+
+          <dl className="mt-12 flex flex-wrap gap-x-12 gap-y-5 border-t border-[rgba(255,244,230,0.22)] pt-6">
+            {stats.map((s) => (
+              <div key={s.label}>
+                <dt className="font-display text-[1.5rem] text-cream">{s.value}</dt>
+                <dd className="text-[0.82rem] tracking-[0.08em] text-[rgba(255,246,235,0.72)] uppercase">
+                  {s.label}
+                </dd>
+              </div>
+            ))}
+          </dl>
         </div>
       </div>
     </header>
