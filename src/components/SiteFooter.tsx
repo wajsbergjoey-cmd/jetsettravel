@@ -3,7 +3,7 @@ import logo from "@/assets/logo.png.asset.json";
 export function SiteFooter() {
   return (
     <footer className="border-t border-border pt-14 pb-10">
-      <div className="wrap flex flex-wrap items-start justify-between gap-[30px]">
+      <div className="wrap flex flex-col items-start justify-between gap-6 sm:flex-row sm:flex-wrap sm:gap-[30px]">
         <div>
           <img src={logo.url} alt="Jet Set Travel Co." className="block h-14 w-auto" />
           <div className="mt-2 max-w-[52ch] text-[0.86rem] leading-[1.7] text-foreground-soft">

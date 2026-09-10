@@ -56,8 +56,11 @@ function Panel({ onClose }: { onClose: () => void }) {
         onClick={onClose}
         className="absolute inset-0 h-full w-full cursor-default bg-[rgba(24,15,10,0.55)] backdrop-blur-[2px] motion-safe:animate-in motion-safe:fade-in"
       />
-      <aside className="absolute inset-y-0 right-0 flex w-full max-w-[460px] flex-col overflow-y-auto bg-background shadow-[0_0_80px_-20px_rgba(24,15,10,0.7)] motion-safe:animate-in motion-safe:slide-in-from-right motion-safe:duration-300">
-        <div className="flex items-center justify-between border-b border-border px-7 py-5">
+      <aside
+        className="absolute inset-y-0 right-0 flex w-full max-w-[460px] flex-col overflow-y-auto overscroll-contain bg-background shadow-[0_0_80px_-20px_rgba(24,15,10,0.7)] motion-safe:animate-in motion-safe:slide-in-from-right motion-safe:duration-300"
+        style={{ paddingBottom: "env(safe-area-inset-bottom)" }}
+      >
+        <div className="sticky top-0 z-10 flex items-center justify-between border-b border-border bg-background px-6 py-4 sm:px-7 sm:py-5">
           <span className="kicker mb-0">Free consultation</span>
           <button
             type="button"
@@ -71,13 +74,13 @@ function Panel({ onClose }: { onClose: () => void }) {
           </button>
         </div>
 
-        <div className="flex flex-1 flex-col px-7 py-8">
-          <h2 className="text-[1.8rem] leading-[1.15]">Let's plan your trip.</h2>
-          <p className="mt-4 text-[0.98rem] text-foreground-soft">
+        <div className="flex flex-1 flex-col px-6 py-7 sm:px-7 sm:py-8">
+          <h2 className="text-[1.55rem] leading-[1.15] sm:text-[1.8rem]">Let's plan your trip.</h2>
+          <p className="mt-3 text-[0.95rem] text-foreground-soft sm:mt-4 sm:text-[0.98rem]">
             The consult is free and takes about fifteen minutes. Here's exactly how it goes.
           </p>
 
-          <ol className="mt-8 flex list-none flex-col gap-6 p-0">
+          <ol className="mt-7 flex list-none flex-col gap-5 p-0 sm:mt-8 sm:gap-6">
             {steps.map((s, i) => (
               <li key={s.title} className="flex gap-4">
                 <span className="badge-gradient mt-[2px] flex h-8 w-8 shrink-0 items-center justify-center rounded-full font-display text-[0.9rem] text-cream">
@@ -91,7 +94,7 @@ function Panel({ onClose }: { onClose: () => void }) {
             ))}
           </ol>
 
-          <div className="mt-auto pt-10">
+          <div className="mt-auto pt-8 sm:pt-10">
             <a
               href={CONSULT_URL}
               target="_blank"

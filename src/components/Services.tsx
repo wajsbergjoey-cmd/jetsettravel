@@ -39,7 +39,7 @@ export function Services() {
           <Reveal
             key={s.title}
             delay={i * 100}
-            className={`group px-[10px] py-10 text-center sm:border-t-0 sm:border-l sm:px-7 sm:py-14 ${
+            className={`group px-[10px] py-8 text-center sm:border-t-0 sm:border-l sm:px-7 sm:py-14 ${
               i === 0 ? "" : "border-t border-[rgba(245,237,225,0.14)]"
             } sm:border-l-[rgba(245,237,225,0.14)] ${i === 0 ? "sm:border-l-0" : ""}`}
           >

@@ -25,18 +25,18 @@ const reviews = [
 
 export function Testimonials() {
   return (
-    <section id="reviews" className="pt-24 pb-[100px]">
+    <section id="reviews" className="pt-[68px] pb-[72px] sm:pt-24 sm:pb-[100px]">
       <div className="wrap">
-        <Reveal className="mb-[52px] max-w-[640px]">
+        <Reveal className="mb-9 max-w-[640px] sm:mb-[52px]">
           <div className="kicker">Client reviews</div>
           <h2 className="text-[clamp(1.9rem,3.6vw,2.6rem)] leading-[1.15]">
             What it's like to work with Joey.
           </h2>
         </Reveal>
-        <div className="grid grid-cols-1 gap-7 sm:grid-cols-2">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-7">
           {reviews.map((r, i) => (
             <Reveal key={r.name} delay={i * 80}>
-              <figure className="lift h-full rounded-[4px] border border-border bg-card px-[30px] py-8">
+              <figure className="lift h-full rounded-[4px] border border-border bg-card px-6 py-7 sm:px-[30px] sm:py-8">
                 <div
                   className="mb-4 text-[0.95rem] tracking-[2px] text-gold"
                   aria-label="5 out of 5 stars"
