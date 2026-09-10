@@ -259,3 +259,39 @@
     flex-shrink: 0;
   }
 }
+
+@layer base {
+  section[id],
+  header[id] {
+    scroll-margin-top: 84px;
+  }
+
+  a:focus-visible,
+  button:focus-visible {
+    outline: 2px solid var(--gold);
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+
+  img {
+    color: transparent;
+  }
+
+  ::selection {
+    background: var(--amber);
+    color: var(--cream);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
