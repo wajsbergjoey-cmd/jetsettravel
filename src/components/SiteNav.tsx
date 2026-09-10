@@ -20,11 +20,12 @@ export function SiteNav() {
 
   useEffect(() => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    if (sessionStorage.getItem("jsl-plane") === "done") return;
-    sessionStorage.setItem("jsl-plane", "done");
-    setFlying(true);
-    const t = window.setTimeout(() => setFlying(false), 2100);
-    return () => window.clearTimeout(t);
+    const start = window.setTimeout(() => setFlying(true), 150);
+    const end = window.setTimeout(() => setFlying(false), 3200);
+    return () => {
+      window.clearTimeout(start);
+      window.clearTimeout(end);
+    };
   }, []);
 
   useEffect(() => {
