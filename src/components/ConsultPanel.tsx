@@ -111,17 +111,21 @@ function Panel({ onClose }: { onClose: () => void }) {
           </ol>
 
           <div className="mt-auto pt-8 sm:pt-10">
-            <a
-              href={CONSULT_URL}
-              target="_blank"
-              rel="noopener"
-              onClick={onClose}
+            <button
+              type="button"
+              onClick={() => {
+                const win = openBookingPopup();
+                if (win) setLaunched(true);
+                else window.open(CONSULT_URL, "_blank", "noopener");
+              }}
               className="block w-full rounded-[3px] bg-primary px-6 py-4 text-center text-[0.98rem] text-primary-foreground transition-colors hover:bg-gold-deep"
             >
-              Continue to the booking form
-            </a>
+              {launched ? "Reopen the booking window" : "Continue to the booking form"}
+            </button>
             <p className="mt-3 text-center text-[0.8rem] text-foreground-soft">
-              Opens Fora's secure intake form in a new tab — this page stays right here.
+              {launched
+                ? "The secure form opened in a small window over this page — I'm right here when you're done."
+                : "Opens Fora's secure form in a small window over this page — you never leave my site."}
             </p>
             <a
               href="mailto:hello@jetsettravelco.com"
