@@ -1,24 +1,60 @@
 import { createFileRoute } from "@tanstack/react-router";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
+import { SiteNav } from "@/components/SiteNav";
+import { Hero } from "@/components/Hero";
+import { Services } from "@/components/Services";
+import { Perks } from "@/components/Perks";
+import { RecentTrips } from "@/components/RecentTrips";
+import { Testimonials } from "@/components/Testimonials";
+import { Consult } from "@/components/Consult";
+import { SiteFooter } from "@/components/SiteFooter";
+
+const title = "Jet Set Travel Co. — Travel Advisor";
+const description =
+  "Hotels, cruises, and flights planned and booked by an advisor — upgrades, resort credit, and insider perks at no extra cost to you.";
+
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title },
+      { name: "description", content: description },
+      { property: "og:title", content: title },
+      { property: "og:description", content: description },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "/" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+    links: [{ rel: "canonical", href: "/" }],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "TravelAgency",
+          name: "Jet Set Travel Co.",
+          description,
+          email: "hello@jetsettravelco.com",
+          sameAs: ["https://instagram.com/jetsettravelco_"],
+        }),
+      },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <>
+      <SiteNav />
+      <main>
+        <Hero />
+        <Services />
+        <Perks />
+        <RecentTrips />
+        <Testimonials />
+        <Consult />
+      </main>
+      <SiteFooter />
+    </>
   );
 }
