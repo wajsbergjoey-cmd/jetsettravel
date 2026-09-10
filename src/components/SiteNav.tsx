@@ -63,21 +63,11 @@ export function SiteNav() {
           className="relative flex items-center"
           aria-label="Jet Set Travel Co. — home"
         >
-          {flying && (
-            <span aria-hidden="true" className="pointer-events-none absolute inset-y-0 left-0 z-[60] flex items-center">
-              <span className="plane-fly relative block text-cream">
-                <span className="plane-trail absolute top-1/2 left-full ml-1 block h-[2px] w-24 origin-left rounded-full bg-gradient-to-r from-cream to-transparent" />
-                <svg viewBox="0 0 24 24" className="h-10 w-10 -scale-x-100 fill-current drop-shadow-[0_3px_10px_rgba(46,32,19,0.65)]">
-                  <path d="M2 16l20-7-7 20-3-8-8-3z" />
-                </svg>
-              </span>
-            </span>
-          )}
           <img
             src={logo.url}
             alt="Jet Set Travel Co."
-            className={`block w-auto transition-all duration-300 ${scrolled ? "h-10" : "h-12"} ${
-              flying ? "logo-arrive" : ""
+            className={`block w-auto transition-all duration-300 ${
+              scrolled ? "h-10" : "h-12"
             }`}
           />
         </a>
